@@ -1,0 +1,24 @@
+# Importe as bibliotecas necessárias
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+# Carregue um conjunto de dados de exemplo
+iris = datasets.load_iris()
+
+# Divida os dados em conjuntos de treinamento e teste
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.3, random_state=42)
+
+# Crie um modelo de classificação
+knn = KNeighborsClassifier(n_neighbors=3)
+
+# Treine o modelo com os dados de treinamento
+knn.fit(X_train, y_train)
+
+# Faça previsões com o modelo usando os dados de teste
+y_pred = knn.predict(X_test)
+
+# Avalie a precisão do modelo
+accuracy = accuracy_score(y_test, y_pred)
+print("Precisão: %.2f%%" % (accuracy * 100.0))

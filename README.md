@@ -1,2 +1,2 @@
 # Site
-Site HTML5, CSS3 E JS
+Site HTML5, CSS3,JS e Python
